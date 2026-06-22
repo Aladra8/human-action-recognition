@@ -1,3 +1,7 @@
+// File: feature_extractor.hpp
+// Author: Baba Drammeh (Student ID: 2085440)
+// Project: Human Action Recognition 
+
 #pragma once
 #include "types.hpp"
 #include <string>

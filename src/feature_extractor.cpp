@@ -1,3 +1,8 @@
+// File: feature_extractor.hpp
+// Author: Gulce Sirvanci (Student ID: 2087153)
+// Project: Human Action Recognition 
+
+
 #include "feature_extractor.hpp"
 #include <algorithm>
 #include <cmath>

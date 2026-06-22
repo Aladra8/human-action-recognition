@@ -1,3 +1,7 @@
+// File: feature_extractor.hpp
+// Author: Baba Drammeh (Student ID: 2085440)
+// Project: Human Action Recognition 
+
 #pragma once
 #include <opencv2/opencv.hpp>
 #include <string>
@@ -46,9 +50,9 @@ struct Sequence {
     cv::Rect             gt_bbox_abs;  // absolute-pixel bbox for frame 20
 };
 
-// ─────────────────────────────────────────────────────────────────────────────
+
 // 29-dimensional feature vector fed into the SVM classifier.
-// ─────────────────────────────────────────────────────────────────────────────
+
 struct FeatureVector {
     std::vector<float> features;
 };

@@ -1,12 +1,14 @@
+// File: feature_extractor.hpp
+// Author: Gulce Sirvanci (Student ID: 2087153)
+// Project: Human Action Recognition 
+
 #pragma once
 #include "types.hpp"
 #include <opencv2/opencv.hpp>
 #include <vector>
 
 // FeatureExtractor
-//
 // Produces a 29-dimensional classical CV feature vector from one sequence.
-//
 // Feature groups:
 //   f0  – f7   Centroid velocity & displacement    (who is moving and how fast)
 //   f8  – f19  Dense Farneback optical flow stats  (motion intensity & direction)

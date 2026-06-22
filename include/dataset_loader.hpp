@@ -1,16 +1,17 @@
+// File: feature_extractor.hpp
+// Author: Baba Drammeh (Student ID: 2085440)
+// Project: Human Action Recognition 
+
 #pragma once
 #include "types.hpp"
 #include <string>
 #include <vector>
 
 // DatasetLoader
-//
 // Scans a root folder and returns all valid 40-frame sequences.
-//
 // Supported layouts:
 //   A) root/class_name/sequence_folder/   (class inferred from directory name)
 //   B) root/sequence_folder/              (class read from gt.txt)
-//
 // Each sequence folder must contain:
 //   • Up to 40 image files (.jpg / .jpeg / .png / .bmp), sorted alphabetically
 //   • One .txt file with: <class_id> <x_c> <y_c> <w> <h>

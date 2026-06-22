@@ -1,0 +1,18 @@
+metric,value
+mIoU,0.729368
+global_accuracy,0.597222
+f1_walking,0.833333
+f1_jogging,0.521739
+f1_running,0.608696
+f1_boxing,0.461538
+f1_handwaving,0.545455
+f1_handclapping,0.615385
+
+Confusion Matrix (row=GT col=Pred)
+,walking,jogging,running,boxing,handwaving,handclapping
+walking,10,1,0,0,1,0
+jogging,2,6,4,0,0,0
+running,0,4,7,0,0,1
+boxing,0,0,0,6,2,4
+handwaving,0,0,0,5,6,1
+handclapping,0,0,0,3,1,8

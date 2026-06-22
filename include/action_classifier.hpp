@@ -1,3 +1,8 @@
+
+// File: action_classifier.hpp
+// Author: Gulce Sirvanci (Student ID: 2087153)
+// Project: Human Action Recognition 
+
 #pragma once
 #include "types.hpp"
 #include <opencv2/ml.hpp>

@@ -1,3 +1,7 @@
+// File: evaluator.cpp
+// Author: Baba Drammeh (Student ID: 2085440)
+// Project: Human Action Recognition 
+
 #include "evaluator.hpp"
 #include <algorithm>
 #include <fstream>
@@ -67,9 +71,7 @@ EvalResult Evaluator::compute(const std::vector<int>& preds,
 //  Print 
 void Evaluator::printReport(const EvalResult& r) {
     std::cout << std::fixed << std::setprecision(4);
-    std::cout << "\n╔══════════════════════════════════════╗\n";
-    std::cout <<   "║       EVALUATION REPORT              ║\n";
-    std::cout <<   "╚══════════════════════════════════════╝\n";
+    std::cout << "\n--- Evaluation Report ---\n";
     std::cout << "  mIoU (frame 20)  : " << r.mIoU << "\n";
     std::cout << "  Global Accuracy  : " << r.global_accuracy * 100.0 << " %\n";
 
@@ -94,7 +96,7 @@ void Evaluator::printReport(const EvalResult& r) {
             std::cout << std::setw(7) << std::right << r.confusion_matrix[g][p];
         std::cout << "\n";
     }
-    std::cout << "════════════════════════════════════════\n";
+    std::cout << "----------------------------------------\n";
 }
 
 // ── CSV ───────────────────────────────────────────────────────────────────────

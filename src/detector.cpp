@@ -1,3 +1,7 @@
+// File: detector.cpp
+// Author: Baba Drammeh (Student ID: 2085440)
+// Project: Human Action Recognition
+
 #include "detector.hpp"
 #include <algorithm>
 #include <iostream>

@@ -1,3 +1,7 @@
+// File: dataset_loader.hpp
+// Author: Baba Drammeh (Student ID: 2085440)
+// Project: Human Action Recognition 
+
 #include "dataset_loader.hpp"
 #include <algorithm>
 #include <filesystem>

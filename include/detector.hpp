@@ -1,10 +1,13 @@
+// File: detector.hpp
+// Author: Baba Drammeh (Student ID: 2085440)
+// Project: Human Action Recognition 
+
 #pragma once
 #include <opencv2/opencv.hpp>
 #include <string>
 #include <vector>
 
 // BackgroundModel
-//
 // Computes a static background image from all 40 frames using
 // pixel-wise median.  Works perfectly for KTH because the camera never moves.
 class BackgroundModel {
@@ -22,7 +25,6 @@ public:
 };
 
 // HumanDetector
-//
 // Finds the human in the foreground mask, tracks the bounding box across
 // all 40 frames with temporal smoothing, and draws the final result.
 class HumanDetector {

@@ -1,8 +1,10 @@
 # Human Action Recognition for Human-Robot Interaction
 ### Classical Computer Vision Pipeline — KTH Action Dataset
 
-> **Course Project** · University of Padua · Department of Information Engineering (DEI)  
-> **Student (Author):** Baba Drammeh `2085440`
+> **Institution** · University of Padua · Department of Information Engineering (DEI)  
+> **Course** . Computer Vision
+> **Student (Author):** Baba Drammeh `2085440`; Gulce Sirvanci `2087153`
+
 
 ---
 
@@ -34,44 +36,33 @@ The pipeline processes 40-frame sequences from the KTH Action Recognition Datase
 
 ```
 Raw AVI frames
-      │
-      ▼
-┌─────────────────────────────────┐
+      
+
 │  1. Smart Frame Selection       │  Scored window search across the full
 │     (download_dataset.py)       │  video — picks 40 frames with most
-│                                 │  stable, visible human foreground.
-└─────────────────────────────────┘
+                                     stable, visible human foreground.
       │
-      ▼
-┌─────────────────────────────────┐
+      
+
 │  2. Background Subtraction      │  Pixel-wise median model over all
 │     (BackgroundModel)           │  40 frames → binary foreground mask.
-└─────────────────────────────────┘
+
       │
-      ▼
-┌─────────────────────────────────┐
+
 │  3. Human Detection & Tracking  │  Largest-blob detection + exponential
 │     (HumanDetector)             │  moving-average bbox smoothing.
-└─────────────────────────────────┘
       │
-      ▼
-┌─────────────────────────────────┐
+      
 │  4. Feature Extraction (36-dim) │  Velocity · Optical flow · Shape ·
 │     (FeatureExtractor)          │  FFT stride frequency · Discriminative
 │                                 │  extras (asymmetry, upward flow, …)
-└─────────────────────────────────┘
       │
-      ▼
-┌─────────────────────────────────┐
+
 │  5. RBF-SVM Classification      │  Min-max normalised features →
 │     (ActionClassifier)          │  OpenCV SVM with LOOCV evaluation.
-└─────────────────────────────────┘
       │
-      ▼
-┌─────────────────────────────────┐
 │  6. Evaluation & Visualisation  │  mIoU · Accuracy · F1 · Confusion
 │     (Evaluator)                 │  matrix · Annotated output images.
-└─────────────────────────────────┘
 ```
 
 ---
@@ -161,7 +152,17 @@ chmod +x dataset_check.sh && ./dataset_check.sh ./dataset
 # Help
 ./har --help
 ```
+## Running on linux 
+# Build from scratch
+cd ~/Cvision
+rm -rf build && mkdir build && cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release
+make -j$(nproc)
+cd ..
 
+# Run everything
+python3 download_dataset.py --raw ./kth_raw --output ./dataset
+./har ./dataset --loocv --visualize
 ---
 
 ## Dataset
@@ -171,23 +172,12 @@ The [KTH Action Recognition Dataset](https://www.csc.kth.se/cvap/actions/) conta
 The `download_dataset.py` script processes the raw AVI files: it scores every possible 40-frame window in each video and selects the window where the human actor is most consistently and stably visible, avoiding setup/transition frames.
 
 ---
-
 ## Output
 
 Each annotated image in `output_frames/` shows:
 - **Red bounding box** — system's predicted human localisation at frame 20
-- **Label (top-right)** — predicted action class name
+- **Label** — predicted action class name
 
 The `eval_report.csv` contains all numeric metrics for further analysis.
 
 ---
-
-## Ubuntu Setup
-
-```bash
-sudo apt install -y build-essential cmake libopencv-dev
-mkdir -p build && cd build && cmake .. -DCMAKE_BUILD_TYPE=Release
-make -j$(nproc) && cd ..
-python3 download_dataset.py --raw ./kth_raw --output ./dataset
-./har ./dataset --loocv --visualize
-```

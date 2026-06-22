@@ -1,3 +1,7 @@
+// File: feature_extractor.hpp
+// Author: Baba Drammeh (Student ID: 2085440)
+// Project: Human Action Recognition 
+
 #include "types.hpp"
 #include "dataset_loader.hpp"
 #include "detector.hpp"
@@ -102,9 +106,7 @@ int main(int argc, char* argv[]) {
 
     if (dataset_path.empty()) { printUsage(argv[0]); return 1; }
 
-    std::cout << "╔══════════════════════════════════════════════╗\n";
-    std::cout << "║  Human Action Recognition  –  KTH Dataset   ║\n";
-    std::cout << "╚══════════════════════════════════════════════╝\n";
+    std::cout << "=== Human Action Recognition - KTH Dataset ===\n";
     std::cout << "Dataset : " << dataset_path << "\n\n";
 
     //  1. Load sequences 
